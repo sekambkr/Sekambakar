@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-stone-100 text-stone-800">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sekam Bakar Subang — Pesan Online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="h-full bg-stone-100 text-stone-800 pb-28 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+  <!-- Application Mobile Container Frame -->
+  <div class="max-w-md mx-auto min-h-full bg-stone-50 shadow-2xl shadow-stone-300/50 flex flex-col relative border-x border-stone-200/60">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-20 bg-stone-50/90 backdrop-blur-md border-b border-stone-200/80 px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-emerald-800 text-stone-100 flex items-center justify-center shadow-md shadow-emerald-900/10">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17 8C8 10 59 16.17 3.83 12 1.17 12 1 12 1c0 0 .17.17 1 3.83C5 20.83 11.17 23 17 23c6 0 6-5 6-15 0 0-1 0-6 0zm-5 11c-3.5 0-6.8-1.4-9.2-3.8C5.2 12.8 8.5 11.4 12 11.4c3.5 0 6.8 1.4 9.2 3.8-2.4 2.4-5.7 3.8-9.2 3.8z"/></svg>
+        </div>
+        <div>
+          <h1 class="text-sm font-bold tracking-tight text-stone-900">Sekam Bakar Subang</h1>
+          <p class="text-[11px] font-medium text-emerald-800">Media Tanam Organik Subang</p>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-2">
+        <!-- Tombol Cek Pesanan / Histori -->
+        <button onclick="openHistoryModal()" class="p-2 rounded-xl bg-emerald-100/80 border border-emerald-200 text-emerald-900 hover:bg-emerald-200 transition-colors flex items-center gap-1.5 text-xs font-bold">
+          <svg class="w-4 h-4 fill-current text-emerald-800" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+          <span>Pesanan Saya</span>
+        </button>
+
+        <!-- WA Help Action -->
+        <a href="https://wa.me/6283164868670?text=Halo%20Sekam%20Bakar%20Subang,%20saya%20butuh%20bantuan%20pesanan" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-stone-100 border border-stone-200/80 text-emerald-700 hover:bg-emerald-50 transition-colors flex items-center gap-1.5 text-xs font-semibold">
+          <svg class="w-4 h-4 fill-current text-emerald-600" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content Shell -->
+    <main class="p-4 space-y-5 flex-1">
+
+      <!-- Information Banner Sheet -->
+      <div class="bg-gradient-to-br from-emerald-900 to-emerald-950 rounded-3xl p-4 text-stone-100 shadow-xl shadow-emerald-950/15 relative overflow-hidden border border-emerald-800/40">
+        <div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-emerald-700/20 blur-xl"></div>
+        <div class="relative z-10 space-y-2">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-800/60 border border-emerald-700/50 text-emerald-200 text-[10px] font-semibold tracking-wide uppercase">
+            <svg class="w-3 h-3 fill-current text-emerald-300" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Layanan Self Pick-Up
+          </div>
+          <h2 class="text-base font-bold leading-snug">Pesan Dari Rumah, Tinggal Angkut di Toko</h2>
+          <p class="text-xs text-emerald-100/80 leading-relaxed">Pembayaran online via QRIS terverifikasi otomatis. Barang langsung dikemas rapi sehingga saat tiba tidak perlu antre.</p>
+        </div>
+      </div>
+
+      <!-- Section Title -->
+      <div class="flex items-center justify-between pt-1">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-stone-500">Katalog Media Tanam</h3>
+        <span class="text-[11px] font-medium text-emerald-800 bg-emerald-100/60 border border-emerald-200 px-2.5 py-0.5 rounded-full">Stok Redi</span>
+      </div>
+
+      <!-- Products Listing Container -->
+      <section id="menu-list" class="space-y-3.5">
+        <div class="py-12 text-center text-xs text-stone-400">Memuat katalog produk...</div>
+      </section>
+
+      <!-- Lokasi & Peta Pengambilan (Google Maps) -->
+      <div class="bg-stone-100/90 rounded-2xl border border-stone-200/80 p-4 space-y-3 shadow-sm">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-emerald-800/10 text-emerald-800 flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xs font-bold text-stone-900">Lokasi Pengambilan</h3>
+              <p class="text-[11px] font-medium text-stone-500">Gudang Sekam Bakar Subang</p>
+            </div>
+          </div>
+          <a href="https://maps.app.goo.gl/7DuByyB4H2SPtHJK9?g_st=ic" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-emerald-800 hover:bg-emerald-700 text-stone-100 text-[11px] font-bold rounded-xl transition-colors flex items-center gap-1 shadow-sm shrink-0">
+            <span>Buka Maps</span>
+            <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6v2H5v12h12v-6h2v6c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2z"/></svg>
+          </a>
+        </div>
+        
+        <!-- Frame Peta Google Maps Embed -->
+        <div class="w-full h-36 rounded-xl overflow-hidden border border-stone-200">
+          <iframe 
+            src="https://maps.google.com/maps?q=-6.5700,107.7600&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Social Media Links Banner -->
+      <div class="pt-6 pb-2 border-t border-stone-200/80 space-y-3 text-center">
+        <p class="text-xs font-semibold text-stone-500">Ikuti Pembaruan & Media Sosial Kami</p>
+        <div class="flex items-center justify-center gap-2.5">
+          <a href="https://wa.me/6283164868670" target="_blank" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 border border-stone-200/80 text-xs font-semibold text-stone-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors">
+            <svg class="w-4 h-4 fill-current text-emerald-600" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://instagram.com/sekambakar.subang" target="_blank" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 border border-stone-200/80 text-xs font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-800 transition-colors">
+            <svg class="w-4 h-4 fill-current text-rose-600" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.facebook.com/share/1HWp2evyqL/?mibextid=wwXIfr" target="_blank" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-stone-100 border border-stone-200/80 text-xs font-semibold text-stone-700 hover:bg-blue-50 hover:text-blue-800 transition-colors">
+            <svg class="w-4 h-4 fill-current text-blue-600" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Floating Application Bottom Bar -->
+    <div id="cart-bar" class="fixed bottom-0 inset-x-0 max-w-md mx-auto bg-stone-900/95 backdrop-blur-xl border-t border-stone-800 p-4 transition-all duration-300 translate-y-full opacity-0 z-30">
+      <div class="flex items-center justify-between gap-4">
+        <div>
+          <p class="text-[11px] font-medium text-stone-400"><span id="cart-qty-text" class="font-bold text-emerald-400">0</span> Barang Terpilih</p>
+          <p id="cart-total-text" class="text-base font-extrabold text-stone-100 mt-0.5">Rp 0</p>
+        </div>
+        <button onclick="openCheckoutModal()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-stone-100 text-xs font-bold rounded-2xl transition-all shadow-lg shadow-emerald-600/30 flex items-center gap-2">
+          <span>Lanjut Pembayaran</span>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL 1: Checkout Form -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-sm hidden items-end justify-center p-0 sm:p-4">
+      <div class="bg-stone-50 border border-stone-200/80 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 max-h-[90vh] overflow-y-auto shadow-2xl animate-in slide-in-from-bottom duration-200">
+        <div class="flex justify-between items-center pb-3 border-b border-stone-200">
+          <h2 class="text-sm font-bold text-stone-900">Detail Pemesan & Pengambilan</h2>
+          <button onclick="closeCheckoutModal()" class="w-8 h-8 rounded-full bg-stone-200/70 hover:bg-stone-200 flex items-center justify-center text-stone-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <div id="modal-cart-items" class="space-y-2.5 divide-y divide-stone-200/80"></div>
+
+        <div class="space-y-3 pt-3 border-t border-stone-200">
+          <div>
+            <label class="block text-xs font-semibold text-stone-700 mb-1">Nama Pemesan</label>
+            <input type="text" id="input-customer-name" placeholder="Contoh: Budi Santoso" class="w-full bg-stone-100 border border-stone-300 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-emerald-700 focus:ring-1 focus:ring-emerald-700">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-stone-700 mb-1">Perkiraan Jam & Hari Ambil</label>
+            <input type="text" id="input-pickup-time" placeholder="Contoh: Hari ini jam 15:00 / Besok Pagi" class="w-full bg-stone-100 border border-stone-300 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-emerald-700 focus:ring-1 focus:ring-emerald-700">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-stone-700 mb-1">Nomor WhatsApp / HP</label>
+            <input type="text" id="input-phone" placeholder="Contoh: 0823xxx" class="w-full bg-stone-100 border border-stone-300 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-emerald-700 focus:ring-1 focus:ring-emerald-700">
+          </div>
+
+          <div class="p-3 bg-stone-100 rounded-2xl border border-stone-200 space-y-1">
+            <p class="text-xs font-bold text-stone-800 flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-emerald-700 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              Pembayaran Online via QRIS
+            </p>
+            <p class="text-[11px] text-stone-600 leading-relaxed">Pesanan web diproses setelah pembayaran via QRIS berhasil terverifikasi.</p>
+          </div>
+
+          <div class="p-3 bg-amber-50 rounded-2xl border border-amber-200/80 space-y-2">
+            <p class="text-[11px] font-medium text-amber-900 leading-relaxed">
+              Ingin membayar secara <strong>Tunai / Cash</strong> saat mengambil barang di lokasi?
+            </p>
+            <button type="button" onclick="redirectToWhatsAppCash()" class="w-full py-2 bg-amber-700 hover:bg-amber-800 text-stone-100 font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+              <svg class="w-4 h-4 fill-current text-amber-100" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.893 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              <span>Pesan & Bayar Cash via WhatsApp</span>
+            </button>
+          </div>
+        </div>
+
+        <button id="btn-next-step" onclick="handleCheckoutNext()" class="w-full py-3.5 bg-emerald-800 hover:bg-emerald-700 text-stone-100 font-bold text-xs rounded-2xl transition-all shadow-lg shadow-emerald-900/20">
+          Lanjut ke QRIS
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL 2: QRIS Display -->
+    <div id="qris-modal" class="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-sm hidden items-end sm:items-center justify-center p-0 sm:p-4">
+      <div class="bg-stone-50 border border-stone-200/80 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 text-center shadow-2xl">
+        <div class="flex justify-between items-center pb-3 border-b border-stone-200">
+          <h2 class="text-sm font-bold text-stone-900">Pembayaran QRIS</h2>
+          <button onclick="closeQrisModal()" class="w-8 h-8 rounded-full bg-stone-200/70 flex items-center justify-center text-stone-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <p class="text-xs text-stone-600">Pindai kode QRIS di bawah menggunakan M-Banking atau E-Wallet milikmu:</p>
+
+        <div class="p-3 bg-white rounded-2xl inline-block border-2 border-emerald-800/20 shadow-sm">
+          <img id="qris-image" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SekamBakarSubangQRIS" alt="QRIS Code" class="w-44 h-44 mx-auto">
+        </div>
+
+        <div class="bg-stone-100 p-3.5 rounded-2xl border border-stone-200">
+          <p class="text-[11px] font-semibold text-stone-500 uppercase tracking-wider">Total Nominal Pembayaran</p>
+          <p class="text-lg font-extrabold text-emerald-800 mt-0.5" id="qris-final-total">Rp 0</p>
+        </div>
+
+        <button id="btn-confirm-qris" onclick="submitOrderToFirebase('QRIS')" class="w-full py-3.5 bg-emerald-800 hover:bg-emerald-700 text-stone-100 font-bold text-xs rounded-2xl transition-all shadow-lg shadow-emerald-900/20">
+          Saya Sudah Membayar
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL 3: Waiting Tracker -->
+    <div id="waiting-modal" class="fixed inset-0 z-50 bg-stone-900/80 backdrop-blur-md hidden items-center justify-center p-4">
+      <div class="bg-stone-50 border border-stone-200/80 w-full max-w-md rounded-3xl p-6 text-center space-y-4 shadow-2xl">
+        <div class="w-12 h-12 border-4 border-emerald-700 border-t-transparent rounded-full animate-spin mx-auto"></div>
+        <div>
+          <h2 id="waiting-title" class="text-base font-bold text-stone-900">Verifikasi Pembayaran</h2>
+          <p id="waiting-desc" class="text-xs text-stone-600 mt-1">Sistem sedang memverifikasi pembayaran QRIS kamu...</p>
+        </div>
+        <div id="waiting-note" class="p-3.5 bg-emerald-50 rounded-2xl border border-emerald-200 text-xs text-emerald-900 font-medium leading-relaxed">
+          Mohon tetap berada di halaman ini. Layar akan terbarui secara otomatis begitu pesanan disetujui pengelola.
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 4: Invoice / Receipt -->
+    <div id="success-modal" class="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-sm hidden items-end sm:items-center justify-center p-0 sm:p-4">
+      <div class="bg-stone-50 border border-stone-200/80 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 text-center shadow-2xl">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 border border-emerald-200 flex items-center justify-center mx-auto">
+          <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <div>
+          <h2 class="text-base font-bold text-stone-900">Pesanan Siap Diambil!</h2>
+          <p class="text-xs text-stone-600 mt-1">Tunjukkan bukti pesanan digital ini saat tiba di lokasi gudang/toko.</p>
+        </div>
+
+        <div id="receipt-details" class="bg-stone-100 p-4 rounded-2xl border border-stone-200 text-left space-y-2 text-xs"></div>
+
+        <button onclick="finishOrder()" class="w-full py-3.5 bg-emerald-800 hover:bg-emerald-700 text-stone-100 font-bold text-xs rounded-2xl transition-all">
+          Selesai
+        </button>
+      </div>
+    </div>
+
+    <!-- MODAL 5: Cek Status / Histori Pesanan Saya -->
+    <div id="history-modal" class="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-sm hidden items-end sm:items-center justify-center p-0 sm:p-4">
+      <div class="bg-stone-50 border border-stone-200/80 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 space-y-4 max-h-[85vh] overflow-y-auto shadow-2xl">
+        <div class="flex justify-between items-center pb-3 border-b border-stone-200">
+          <h2 class="text-sm font-bold text-stone-900">Riwayat & Status Pesanan</h2>
+          <button onclick="closeHistoryModal()" class="w-8 h-8 rounded-full bg-stone-200/70 hover:bg-stone-200 flex items-center justify-center text-stone-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <div class="flex gap-2">
+          <input type="text" id="search-phone-input" placeholder="Masukkan No. WA/HP Kamu..." class="flex-1 bg-stone-100 border border-stone-300 rounded-xl px-3.5 py-2 text-xs text-stone-900 focus:outline-none focus:border-emerald-700">
+          <button onclick="searchOrdersByPhone()" class="px-4 py-2 bg-emerald-800 text-stone-100 font-bold text-xs rounded-xl shadow-sm hover:bg-emerald-700">Cek</button>
+        </div>
+
+        <div id="history-results-list" class="space-y-3 pt-2">
+          <p class="text-xs text-stone-500 text-center py-6">Ketik nomor WA kamu di atas untuk melihat status pesanan.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { initializeFirestore, collection, addDoc, doc, onSnapshot, serverTimestamp, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyD9IZnOoj92mjDVXnoI32NfTqxBrUMZAsg",
+      authDomain: "sekambakarsubang.firebaseapp.com",
+      projectId: "sekambakarsubang",
+      storageBucket: "sekambakarsubang.firebasestorage.app",
+      messagingSenderId: "743733680640",
+      appId: "1:743733680640:web:84ab4ca233c8dcf65bd6e5",
+      measurementId: "G-QXJKW2R0HG"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = initializeFirestore(app, { experimentalForceLongPolling: true, useFetchStreams: false });
+
+    const TELEGRAM_BOT_TOKEN = "8633457241:AAHkMF05EzQF0QcznqSu2vAfeh36Xx2c0AA";
+    const TELEGRAM_CHAT_ID = "7718199577";
+
+    async function sendTelegramNotification(orderData) {
+      let itemsList = orderData.items.map(i => `• ${i.name} (x${i.qty})`).join("\n");
+      let message = `🚨 *PESANAN BARU MASUK!*\n\n` +
+                    `👤 *Nama:* ${orderData.customerName}\n` +
+                    `⏰ *Jam Ambil:* ${orderData.pickupTime}\n` +
+                    `📞 *No. WA:* ${orderData.phone}\n` +
+                    `💳 *Metode:* ${orderData.paymentMethod}\n\n` +
+                    `📦 *Rincian Pesanan:*\n${itemsList}\n\n` +
+                    `💰 *Total:* Rp ${orderData.totalAmount.toLocaleString('id-ID')}`;
+
+      try {
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: message,
+            parse_mode: "Markdown"
+          })
+        });
+      } catch (err) {
+        console.error("Gagal kirim notif Telegram:", err);
+      }
+    }
+
+    let menuItems = [];
+    let cart = {};
+    let currentTotal = 0;
+    let activeOrderUnsubscribe = null;
+
+    // LISTEN KATALOG REALTIME
+    onSnapshot(collection(db, "products"), (snapshot) => {
+      menuItems = [];
+      snapshot.forEach(docSnap => {
+        const item = docSnap.data();
+        menuItems.push({ id: docSnap.id, ...item });
+      });
+      renderMenu();
+      updateCartUI();
+    });
+
+    function renderMenu() {
+      const container = document.getElementById('menu-list');
+      container.innerHTML = '';
+
+      if (menuItems.length === 0) {
+        container.innerHTML = `<p class="text-xs text-stone-500 text-center py-8">Belum ada produk di katalog.</p>`;
+        return;
+      }
+
+      menuItems.forEach(item => {
+        const qty = cart[item.id] || 0;
+        const isAvail = item.isAvailable !== false;
+
+        const card = document.createElement('div');
+        card.className = `p-3.5 bg-stone-100/90 border border-stone-200/80 rounded-2xl flex gap-3.5 items-center shadow-sm ${!isAvail ? 'opacity-60' : ''}`;
+        card.innerHTML = `
+          <div class="w-20 h-20 bg-stone-200 rounded-xl overflow-hidden shrink-0 border border-stone-200">
+            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-bold text-xs text-stone-900 truncate">${item.name}</h3>
+            <p class="text-[11px] text-stone-600 mt-0.5 line-clamp-2 leading-relaxed">${item.desc}</p>
+            <div class="mt-2.5 flex items-center justify-between">
+              <span class="text-xs font-extrabold text-emerald-800">Rp ${(item.price || 0).toLocaleString('id-ID')}</span>
+              
+              ${isAvail ? `
+                <div class="flex items-center gap-1.5 bg-stone-200/80 rounded-xl p-1">
+                  ${qty > 0 ? `<button onclick="changeQty('${item.id}', -1)" class="w-6 h-6 bg-stone-100 rounded-lg text-stone-800 font-bold text-xs shadow-sm flex items-center justify-center">-</button><span class="text-xs font-bold text-emerald-900 px-1.5">${qty}</span>` : ''}
+                  <button onclick="changeQty('${item.id}', 1)" class="px-3 py-1 bg-emerald-800 hover:bg-emerald-700 text-stone-100 text-xs font-semibold rounded-lg shadow-sm transition-colors">+ Tambah</button>
+                </div>
+              ` : `
+                <span class="px-2.5 py-1 bg-rose-100 text-rose-800 border border-rose-200 rounded-lg text-[10px] font-bold">Stok Habis</span>
+              `}
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    window.changeQty = function(id, delta) {
+      cart[id] = (cart[id] || 0) + delta;
+      if (cart[id] <= 0) delete cart[id];
+      updateCartUI();
+      renderMenu();
+    };
+
+    function updateCartUI() {
+      let totalQty = 0;
+      currentTotal = 0;
+      Object.keys(cart).forEach(id => {
+        const item = menuItems.find(m => m.id === id);
+        if (item) {
+          totalQty += cart[id];
+          currentTotal += item.price * cart[id];
+        }
+      });
+
+      document.getElementById('cart-qty-text').innerText = totalQty;
+      document.getElementById('cart-total-text').innerText = `Rp ${currentTotal.toLocaleString('id-ID')}`;
+      
+      const cartBar = document.getElementById('cart-bar');
+      if (totalQty > 0) cartBar.classList.remove('translate-y-full', 'opacity-0');
+      else cartBar.classList.add('translate-y-full', 'opacity-0');
+    }
+
+    window.openCheckoutModal = function() {
+      const container = document.getElementById('modal-cart-items');
+      container.innerHTML = '';
+      Object.keys(cart).forEach(id => {
+        const item = menuItems.find(m => m.id === id);
+        if (item) {
+          const row = document.createElement('div');
+          row.className = 'pt-2 flex justify-between text-xs font-medium text-stone-700';
+          row.innerHTML = `<span>${item.name} <strong class="text-emerald-800">x${cart[id]}</strong></span><span class="font-bold text-stone-900">Rp ${(item.price * cart[id]).toLocaleString('id-ID')}</span>`;
+          container.appendChild(row);
+        }
+      });
+
+      const savedPhone = localStorage.getItem('user_phone') || '';
+      if (savedPhone) document.getElementById('input-phone').value = savedPhone;
+
+      document.getElementById('checkout-modal').classList.remove('hidden');
+      document.getElementById('checkout-modal').classList.add('flex');
+    };
+
+    window.closeCheckoutModal = function() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+      document.getElementById('checkout-modal').classList.remove('flex');
+    };
+
+    window.closeQrisModal = function() {
+      document.getElementById('qris-modal').classList.add('hidden');
+      document.getElementById('qris-modal').classList.remove('flex');
+    };
+
+    window.handleCheckoutNext = function() {
+      const name = document.getElementById('input-customer-name').value.trim();
+      const pickupTime = document.getElementById('input-pickup-time').value.trim();
+
+      if (!name || !pickupTime) return alert("Mohon lengkapi Nama Pemesan & Perkiraan Jam Pengambilan!");
+
+      closeCheckoutModal();
+      document.getElementById('qris-final-total').innerText = `Rp ${currentTotal.toLocaleString('id-ID')}`;
+      document.getElementById('qris-modal').classList.remove('hidden');
+      document.getElementById('qris-modal').classList.add('flex');
+    };
+
+    window.redirectToWhatsAppCash = function() {
+      const name = document.getElementById('input-customer-name').value.trim() || 'Pembeli';
+      const pickupTime = document.getElementById('input-pickup-time').value.trim() || 'Segera';
+      const phone = document.getElementById('input-phone').value.trim() || '-';
+
+      if (phone !== '-') localStorage.setItem('user_phone', phone);
+
+      let itemsText = Object.keys(cart).map(id => {
+        const item = menuItems.find(m => m.id === id);
+        return `- ${item.name} (x${cart[id]}) = Rp ${(item.price * cart[id]).toLocaleString('id-ID')}`;
+      }).join('%0A');
+
+      let message = `Halo%20Sekam%20Bakar%20Subang,%20saya%20ingin%20pesan%20dan%20bayar%20CASH%20saat%20ambil:%0A%0A` +
+                    `*Nama:*%20${encodeURIComponent(name)}%0A` +
+                    `*Waktu%20Ambil:*%20${encodeURIComponent(pickupTime)}%0A` +
+                    `*No.%20WA:*%20${encodeURIComponent(phone)}%0A%0A` +
+                    `*Rincian%20Pesanan:*%0A${itemsText}%0A%0A` +
+                    `*Total:*%20Rp%20${currentTotal.toLocaleString('id-ID')}`;
+
+      window.open(`https://wa.me/6283164868670?text=${message}`, '_blank');
+    };
+
+    window.submitOrderToFirebase = async function(paymentMethod) {
+      const name = document.getElementById('input-customer-name').value.trim();
+      const pickupTime = document.getElementById('input-pickup-time').value.trim();
+      const phone = document.getElementById('input-phone').value.trim() || "-";
+
+      const btnQris = document.getElementById('btn-confirm-qris');
+      if (btnQris) { btnQris.innerText = "Mengirim..."; btnQris.disabled = true; }
+
+      if (phone !== "-") localStorage.setItem('user_phone', phone);
+
+      const orderItems = Object.keys(cart).map(id => {
+        const item = menuItems.find(m => m.id === id);
+        return { name: item.name, qty: cart[id], price: item.price };
+      });
+
+      const orderPayload = {
+        customerName: name,
+        pickupTime: pickupTime,
+        phone: phone,
+        paymentMethod: 'QRIS',
+        paymentStatus: 'Menunggu Verifikasi QRIS',
+        items: orderItems,
+        status: "Menunggu Konfirmasi",
+        totalAmount: currentTotal,
+        createdAt: serverTimestamp()
+      };
+
+      try {
+        closeCheckoutModal();
+        closeQrisModal();
+
+        const docRef = await addDoc(collection(db, "orders"), orderPayload);
+
+        localStorage.setItem('last_order_id', docRef.id);
+
+        sendTelegramNotification(orderPayload);
+
+        document.getElementById('waiting-modal').classList.remove('hidden');
+        document.getElementById('waiting-modal').classList.add('flex');
+
+        listenToOrderUpdate(docRef.id);
+
+      } catch (err) {
+        console.error("Firebase Error:", err);
+        alert("Gagal mengirim pesanan: " + err.message);
+      } finally {
+        if (btnQris) { btnQris.innerText = "Saya Sudah Membayar"; btnQris.disabled = false; }
+      }
+    };
+
+    function listenToOrderUpdate(orderId) {
+      if (activeOrderUnsubscribe) activeOrderUnsubscribe();
+
+      activeOrderUnsubscribe = onSnapshot(doc(db, "orders", orderId), (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+
+          if (data.status === "Siap Diambil" || data.status === "Selesai") {
+            if (activeOrderUnsubscribe) activeOrderUnsubscribe();
+
+            document.getElementById('waiting-modal').classList.add('hidden');
+            document.getElementById('waiting-modal').classList.remove('flex');
+
+            const receiptBox = document.getElementById('receipt-details');
+            receiptBox.innerHTML = `
+              <div class="flex justify-between text-stone-600"><span>Nama Pemesan:</span> <strong class="text-stone-900">${data.customerName}</strong></div>
+              <div class="flex justify-between text-stone-600"><span>Jadwal Pengambilan:</span> <strong class="text-emerald-800">${data.pickupTime}</strong></div>
+              <div class="flex justify-between text-stone-600"><span>No. WhatsApp:</span> <strong class="text-stone-900">${data.phone}</strong></div>
+              <div class="flex justify-between text-stone-600"><span>Metode Bayar:</span> <strong class="text-emerald-800">${data.paymentMethod} (Lunas)</strong></div>
+              <div class="border-t border-stone-200 my-2 pt-2 space-y-1">
+                ${data.items.map(i => `<div class="flex justify-between text-stone-700"><span>${i.name} x${i.qty}</span><span>Rp${(i.price * i.qty).toLocaleString('id-ID')}</span></div>`).join('')}
+              </div>
+              <div class="border-t border-stone-200 pt-2 flex justify-between font-bold text-stone-900">
+                <span>Total Biaya:</span>
+                <span class="text-emerald-800">Rp ${data.totalAmount.toLocaleString('id-ID')}</span>
+              </div>
+            `;
+
+            document.getElementById('success-modal').classList.remove('hidden');
+            document.getElementById('success-modal').classList.add('flex');
+
+            cart = {};
+            updateCartUI();
+          }
+        }
+      });
+    }
+
+    // MODAL HISTORI & CEK PESANAN SAYA
+    window.openHistoryModal = function() {
+      const savedPhone = localStorage.getItem('user_phone') || '';
+      if (savedPhone) {
+        document.getElementById('search-phone-input').value = savedPhone;
+        searchOrdersByPhone();
+      }
+      document.getElementById('history-modal').classList.remove('hidden');
+      document.getElementById('history-modal').classList.add('flex');
+    };
+
+    window.closeHistoryModal = function() {
+      document.getElementById('history-modal').classList.add('hidden');
+      document.getElementById('history-modal').classList.remove('flex');
+    };
+
+    window.searchOrdersByPhone = async function() {
+      const phone = document.getElementById('search-phone-input').value.trim();
+      const container = document.getElementById('history-results-list');
+
+      if (!phone) return alert("Masukkan nomor HP/WhatsApp kamu!");
+
+      localStorage.setItem('user_phone', phone);
+      container.innerHTML = `<p class="text-xs text-stone-400 text-center py-6">Mencari pesanan...</p>`;
+
+      try {
+        const q = query(collection(db, "orders"), where("phone", "==", phone));
+        const snapshot = await getDocs(q);
+
+        container.innerHTML = '';
+
+        if (snapshot.empty) {
+          container.innerHTML = `<p class="text-xs text-stone-500 text-center py-6">Tidak ditemukan pesanan dengan nomor ${phone}.</p>`;
+          return;
+        }
+
+        snapshot.forEach(docSnap => {
+          const data = docSnap.data();
+          const isReady = data.status === 'Siap Diambil';
+          const isDone = data.status === 'Selesai';
+
+          const itemsHTML = data.items ? data.items.map(i => `<div class="flex justify-between text-xs text-stone-600"><span>${i.name} x${i.qty}</span></div>`).join('') : '';
+
+          const card = document.createElement('div');
+          card.className = `p-3.5 rounded-2xl border ${isReady ? 'bg-emerald-50 border-emerald-300' : isDone ? 'bg-stone-100 border-stone-200' : 'bg-amber-50 border-amber-300'} space-y-2`;
+          card.innerHTML = `
+            <div class="flex justify-between items-center pb-2 border-b border-stone-200">
+              <div>
+                <p class="text-xs font-bold text-stone-900">${data.customerName}</p>
+                <p class="text-[10px] text-stone-500">Ambil: ${data.pickupTime}</p>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${isReady ? 'bg-emerald-200 text-emerald-900' : isDone ? 'bg-stone-200 text-stone-600' : 'bg-amber-200 text-amber-900'}">
+                ${data.status}
+              </span>
+            </div>
+            <div class="space-y-1">${itemsHTML}</div>
+            <div class="pt-1 flex justify-between text-xs font-bold text-emerald-800 border-t border-stone-200">
+              <span>Total:</span>
+              <span>Rp ${(data.totalAmount || 0).toLocaleString('id-ID')}</span>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = `<p class="text-xs text-rose-500 text-center py-4">Gagal memuat histori pesanan.</p>`;
+      }
+    };
+
+    window.finishOrder = function() {
+      document.getElementById('success-modal').classList.add('hidden');
+      document.getElementById('success-modal').classList.remove('flex');
+    };
+  </script>
+</body>
+</html>
